@@ -55,6 +55,10 @@ public class EncryptionLauncher {
 
         // Stores the contents of the message file as a string
         String messageAsString = new String(Files.readAllBytes(Paths.get(messagePath)));
+	    
+	// Gets rid of \n character. Usually inserted at the end of txt files in Unix
+	if (messageAsString.charAt(messageAsString.length()-1) == '\n')
+		messageAsString = messageAsString.substring(0, messageAsString.length()-2);
 
 
         // Create big integers for the numbers read from public key file and message file
